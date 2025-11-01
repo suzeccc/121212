@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP追剧神器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #f5f5f5;
+        }
+
+        .app-container {
+            width: 480px;
+            height: 200px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            width: 100px;
+            margin-right: 5px;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+            height: 30px;
+            box-sizing: border-box;
+        }
+
+        button {
+            height: 30px;
+            padding: 0 15px;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .button-group button {
+            width: 80px;
+            height: 40px;
+        }
+
+        .button-group button:last-child {
+            width: 125px;
+        }
+
+        .reminder {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="input-group">
+            <label>输入视频网址：</label>
+            <input type="text" id="videoUrl" placeholder="请输入视频网址">
+            <button id="clearBtn">清空</button>
+        </div>
+
+        <div class="button-group">
+            <button id="iqiyiBtn">爱奇艺</button>
+            <button id="txBtn">腾讯视频</button>
+            <button id="youkuBtn">优酷视频</button>
+            <button id="playBtn">播放VIP视频</button>
+        </div>
+
+        <div class="reminder">
+            提示：复制对应vip视频链接，并粘贴到输入框中。
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('iqiyiBtn').addEventListener('click', function () {
+            window.open('https://www.iqiyi.com', '_blank');
+        });
+
+        document.getElementById('txBtn').addEventListener('click', function () {
+            window.open('https://v.qq.com', '_blank');
+        });
+
+        document.getElementById('youkuBtn').addEventListener('click', function () {
+            window.open('https://www.youku.com/', '_blank');
+        });
+
+        document.getElementById('playBtn').addEventListener('click', function () {
+            const videoUrl = document.getElementById('videoUrl').value;
+            if (videoUrl) {
+                window.open('https://jx.xmflv.cc/?url=' + videoUrl, '_blank');
+            } else {
+                alert('请输入视频网址');
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', function () {
+            document.getElementById('videoUrl').value = '';
+        });
+    </script>
+</body>
+
+</html>
